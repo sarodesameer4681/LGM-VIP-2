@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <title>Get Details Display in Table</title>
+            <style>
+                *{
+                    margin: 0;
+                    padding: 0;
+                    
+                    
+                }
+                html{
+                    background-color: #b3ffff;
+                
+                    background: radial-gradient(rgba(179,255,255,0.5),rgba(255,255,255,0.5),rgba(0,0,0,0.3));
+                    text-align: center;
+                    
+                }
+                #nameDiv{
+                    margin-top: 50px;
+                }
+                .input{
+                    font-size: 25px;
+                    color: #004d00;
+                    font-weight: 700;
+                    font-family: cursive;
+                    margin: 20px;
+                }
+                #entry{
+                    width: 150px;
+                    height: 40px;
+                    font-size: 23px;
+                    font-family: "Comic Sans MS",cursive,sans-serif;
+                    background-color: #001a66;
+                    color:whitesmoke;
+                    box-shadow:0 2px 2px 0 rgba(0,0,0,0.5);
+                    margin-top: 10px;
+                }
+                table{
+                    border-collapse: collapse;
+                    width: 50%;
+                    margin: 50px auto;
+                    background-color: burlywood;
+                }
+                table, th, td{
+                    border:2px solid black;
+                    padding: 5px;
+                }
+                th{
+                    font-size: 30px;
+                    font-weight: 700;
+                    font-family: Arial;
+                    color: #004d00;
+                
+                }
+                td{
+                    font-size: 25px;
+                    color: crimson;
+                    font-weight: 400;
+                    font-family: Georgia;
+                }
+            </style>
+        </head>
+
+        <body>
+            <!-- code to get multiple students and Display them in a table -->
+
+                <div id="container">
+                    <div id="nameDiv" class="input">
+                        Name: <input id="name" type="text" placeholder="Name"/>   
+                    </div>
+                    <div class="input">
+                        Age: <input id="age" type="text" placeholder="Age"/>
+                    </div>
+                    <div class="input">
+                        Grade: <input id="grade" type="text" placeholder="Grade"/>
+                    </div>
+                    <button id="entry">Input Entry</button>
+                </div>
+
+                <table id="display">
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Grade</th>
+                </tr>
+            </table>
+            
+            <script>
+                var row = 1;
+
+                    var entry = document.getElementById("entry");
+                    entry.addEventListener("click",displayDetails);
+
+
+
+                    function displayDetails(){
+                        var name = document.getElementById("name").value;
+                        var age = document.getElementById("age").value;
+                        var grade = document.getElementById("grade").value;
+
+                        if(!name || !age || !grade){
+                            alert("Please fill all the boxes!!");
+                            return;
+                        }
+                    var display = document.getElementById("display");
+
+                    var newRow = display.insertRow(row);
+
+                    var cell1 = newRow.insertCell(0);
+                    var cell2 = newRow.insertCell(1);
+                    var cell3 = newRow.insertCell(2);
+
+                    cell1.innerHTML = name;
+                    cell2.innerHTML = age;
+                    cell3.innerHTML = grade;
+
+                    row++;
+                    }
+            </script>
+
+        </body>
+
+</html>
